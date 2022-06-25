@@ -1,16 +1,14 @@
 const button = document.querySelector('button');
 
-button.addEventListener('click', ()=>{
+button.addEventListener('click', async ()=>{
     const img = document.querySelector('img');
-    const newCat = getNewCat();
-    img.src = newCat.url;
+    const newCat = await getNewCat();
+    console.log(newCat);
+    img.src = newCat[0].url;
 });
 
 async function getNewCat(){
-    const thisHeaders = new Headers();
-    thisHeaders.append('content-type', 'text/html');
-    thisHeaders.append('referrer-policy', 'same-origin');
-    await fetch('https://api.thecatapi.com/v1/images/search?size=full', {
+    return await fetch('https://api.thecatapi.com/v1/images/search?size=full', {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -19,7 +17,6 @@ async function getNewCat(){
           },
         mode: 'cors'
     })
-    .then(response => response.json())
-    .then(json => JSON.parse(json));
+    .then(response => response.json());
 }
 
