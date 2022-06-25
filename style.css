@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     flex-flow: column nowrap;
@@ -6,8 +10,12 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-header, main {
+main {
     margin: auto;
+}
+
+header {
+    margin: 0 auto;
 }
 
 h1 {
@@ -20,9 +28,20 @@ main {
     background-color: rgba(235, 204, 151, 0.7);
     width: 400px;
     border-radius: 4px;
+    padding: 10px;
+}
+
+div {
+    margin: auto;
 }
 
 button {
     max-width: 30%;
     margin: 0 auto;
+    background-color: chocolate;
+    border: none;
+    border-radius: 10px;
+    color:antiquewhite;
+    height: 4rem;
+    font-size: large;
 }
