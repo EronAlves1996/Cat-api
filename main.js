@@ -1,11 +1,19 @@
-const button = document.querySelector('button');
+const buttonCat = document.querySelector('#cats button');
+const buttonDog = document.querySelector('#dogs button');
 
-button.addEventListener('click', changeCat);
+buttonCat.addEventListener('click', changePet);
 
-async function changeCat() {
-    const img = document.querySelector('img');
-    const newCat = await getNewCat();
-    img.src = newCat[0].url;
+async function changePet(e) {
+    console.log(e);
+    if (e.target.className === "dog") {
+
+    } else if (e.target.className === "cat") {
+        const img = document.querySelector('#cats .pet-img');
+        const newCat = await getNewCat();
+        img.src = newCat[0].url;
+    } else {
+
+    }
 } 
 
 async function getNewCat(){
@@ -21,4 +29,4 @@ async function getNewCat(){
     .then(response => response.json());
 }
 
-addEventListener("DOMContentLoaded", changeCat);
+addEventListener("DOMContentLoaded", changePet);
