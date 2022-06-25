@@ -2,17 +2,23 @@ const buttonCat = document.querySelector('#cats button');
 const buttonDog = document.querySelector('#dogs button');
 
 buttonCat.addEventListener('click', changePet);
+buttonDog.addEventListener('click', changePet);
 
 async function changePet(e) {
-    console.log(e);
+    const imgDog = document.querySelector('#dogs .pet-img');
+    const imgCat = document.querySelector('#cats .pet-img');
+
     if (e.target.className === "dog") {
-
+        const newDog = await getNewDog();
+        imgDog.src = newDog.message;
     } else if (e.target.className === "cat") {
-        const img = document.querySelector('#cats .pet-img');
         const newCat = await getNewCat();
-        img.src = newCat[0].url;
+        imgCat.src = newCat[0].url;
     } else {
-
+        const newDog = await getNewDog();
+        imgDog.src = newDog.message;
+        const newCat = await getNewCat();
+        imgCat.src = newCat[0].url;
     }
 } 
 
@@ -26,6 +32,11 @@ async function getNewCat(){
           },
         mode: 'cors'
     })
+    .then(response => response.json());
+}
+
+async function getNewDog(){
+    return await fetch("https://dog.ceo/api/breeds/image/random")
     .then(response => response.json());
 }
 
