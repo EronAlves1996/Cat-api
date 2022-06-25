@@ -35,8 +35,8 @@ div {
 }
 
 button {
-    max-width: 30%;
     min-width: 100px;
+    max-width: 50%;
     margin: 0 auto;
     background-color: chocolate;
     border: none;
