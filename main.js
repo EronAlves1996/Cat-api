@@ -1,11 +1,12 @@
 const button = document.querySelector('button');
 
-button.addEventListener('click', async ()=>{
+button.addEventListener('click', changeCat);
+
+async function changeCat() {
     const img = document.querySelector('img');
     const newCat = await getNewCat();
-    console.log(newCat);
     img.src = newCat[0].url;
-});
+} 
 
 async function getNewCat(){
     return await fetch('https://api.thecatapi.com/v1/images/search?size=full', {
@@ -20,3 +21,4 @@ async function getNewCat(){
     .then(response => response.json());
 }
 
+addEventListener("DOMContentLoaded", changeCat);
