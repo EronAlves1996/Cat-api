@@ -26,7 +26,6 @@ main {
     display: flex;
     flex-direction: column;
     background-color: rgba(235, 204, 151, 0.7);
-    width: 400px;
     border-radius: 4px;
     padding: 10px;
 }
@@ -37,6 +36,7 @@ div {
 
 button {
     max-width: 30%;
+    min-width: 100px;
     margin: 0 auto;
     background-color: chocolate;
     border: none;
@@ -44,4 +44,8 @@ button {
     color:antiquewhite;
     height: 4rem;
     font-size: large;
+}
+
+img {
+    max-width: 600px;
 }
