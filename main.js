@@ -43,9 +43,15 @@ async function getNewDog(){
 
 addEventListener("DOMContentLoaded", changePet);
 document.addEventListener("DOMContentLoaded", async ()=> {
+    
     const dogList = await fetch(" https://dog.ceo/api/breeds/list/all")
     .then(response => response.json());
-    console.log(dogList.message);
+
+    let randomOption = document.createElement("option");
+    randomOption.textContent = "random";
+    randomOption.value = "random";
+    dogSelection.appendChild(randomOption);
+
     for(let arrays in dogList.message) {
         console.log(arrays);
         let option = document.createElement("option");
