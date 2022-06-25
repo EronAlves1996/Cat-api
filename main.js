@@ -1,5 +1,6 @@
 const buttonCat = document.querySelector('#cats button');
 const buttonDog = document.querySelector('#dogs button');
+const dogSelection = document.querySelector("#selectDog");
 
 buttonCat.addEventListener('click', changePet);
 buttonDog.addEventListener('click', changePet);
@@ -41,3 +42,15 @@ async function getNewDog(){
 }
 
 addEventListener("DOMContentLoaded", changePet);
+document.addEventListener("DOMContentLoaded", async ()=> {
+    const dogList = await fetch(" https://dog.ceo/api/breeds/list/all")
+    .then(response => response.json());
+    console.log(dogList.message);
+    for(let arrays in dogList.message) {
+        console.log(arrays);
+        let option = document.createElement("option");
+        option.textContent = arrays;
+        option.value = arrays;
+        dogSelection.appendChild(option);
+    }
+});
