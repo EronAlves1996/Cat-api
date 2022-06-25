@@ -1,6 +1,7 @@
 const buttonCat = document.querySelector('#cats button');
 const buttonDog = document.querySelector('#dogs button');
 const dogSelection = document.querySelector("#selectDog");
+let DogList;
 
 buttonCat.addEventListener('click', changePet);
 buttonDog.addEventListener('click', changePet);
@@ -44,7 +45,7 @@ async function getNewDog(){
 addEventListener("DOMContentLoaded", changePet);
 document.addEventListener("DOMContentLoaded", async ()=> {
     
-    const dogList = await fetch(" https://dog.ceo/api/breeds/list/all")
+    dogList = await fetch(" https://dog.ceo/api/breeds/list/all")
     .then(response => response.json());
 
     let randomOption = document.createElement("option");
@@ -53,10 +54,28 @@ document.addEventListener("DOMContentLoaded", async ()=> {
     dogSelection.appendChild(randomOption);
 
     for(let arrays in dogList.message) {
-        console.log(arrays);
         let option = document.createElement("option");
         option.textContent = arrays;
         option.value = arrays;
         dogSelection.appendChild(option);
     }
 });
+
+dogSelection.addEventListener('change', ()=>{
+    const verifyArray = dogList.message[dogSelection.value];
+    const selectBreed =  document.querySelector("#selectBreed");
+
+    if(selectBreed.children.length > 1) {
+        selectBreed.removeChild(selectBreed.children[1]);
+    }
+    if(verifyArray.length > 0) {
+        const subSelect = document.createElement("select");
+        verifyArray.forEach(n=>{
+            const subOption = document.createElement("option");
+            subOption.textContent = n;
+            subOption.value = n;
+            subSelect.append(subOption);
+        });
+        selectBreed.appendChild(subSelect);
+    }
+})

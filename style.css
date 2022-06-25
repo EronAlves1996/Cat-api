@@ -58,3 +58,11 @@ button {
     max-width: 100%;
     margin: 10px auto;
 }
+
+#selectBreed {
+    display: flex;
+}
+
+#selectBreed select {
+    width: 50%;
+}
