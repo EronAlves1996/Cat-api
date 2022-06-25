@@ -4,10 +4,16 @@
 
 body {
     display: flex;
-    flex-flow: column nowrap;
     height: 100vh;
     background-color: azure;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+section {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 main {
@@ -32,6 +38,8 @@ main {
 
 div {
     margin: auto;
+    width: 100vh;
+    display: flex;
 }
 
 button {
@@ -46,6 +54,7 @@ button {
     font-size: large;
 }
 
-img {
-    max-width: 600px;
+.pet-img {
+    max-width: 100%;
+    margin: 10px auto;
 }
