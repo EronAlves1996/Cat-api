@@ -2,9 +2,27 @@ body {
     display: flex;
     flex-flow: column nowrap;
     height: 100vh;
+    background-color: azure;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 header, main {
     margin: auto;
 }
 
+h1 {
+    text-shadow: 1px 1px 3px rgba(0,0,0, 0.7);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(235, 204, 151, 0.7);
+    width: 400px;
+    border-radius: 4px;
+}
+
+button {
+    max-width: 30%;
+    margin: 0 auto;
+}
